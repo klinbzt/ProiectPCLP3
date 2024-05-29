@@ -11,6 +11,7 @@ cols = int(data.shape[1])
 val_lipsa_total = rows * cols - data.count().sum()
 dup_rows = data.duplicated().sum()
 
+## Afisare terminal 1:
 print(f"Informatii fisier train.csv:")
 print(f"-> linii: {rows}\n-> coloane: {cols}\n-> nr. valori lipsa (totale): {val_lipsa_total}\n-> randuri duplicate: {dup_rows}")
 
@@ -44,7 +45,7 @@ pstats_str = pstats.sort_index().round(2).to_string()
 ## Calcularea procentului de barbati/femei
 procent_gen = data_uniq['Sex'].value_counts(normalize=True) * 100
 
-## Afisare terminal:
+## Afisare terminal 2:
 print(f"-> Procentaj supravietuitori: {round(prec_sur, 2)}%")
 print(f"-> Procentaj decedati: {round(prec_dead, 2)}%")
 print(f"-> Pocentaje pentru {pstats_str}")
