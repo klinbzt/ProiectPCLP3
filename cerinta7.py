@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 # Cerinta 7
 data = pd.read_csv('train_prelucrat2.csv')
 
-## Calcularea procentului copiilor aflati la bord
+## Calcularea procentului copiilor aflați la bord
 passengers = len(data)
 children = len(data[data['Age'] < 18])
 perc_child = round((children / passengers) * 100, 2)
 
-## Calcularea ratei de supravietuire pentru copii si adulti
+## Calcularea ratei de supraviețuire pentru copii și adulți
 surv_rate = { "Copii" : round(data[data['Age'] < 18]['Survived'].mean() * 100, 2), "Adulti" : round(data[data['Age'] >= 18]['Survived'].mean() * 100, 2)}
 
 ## Afisare terminal:
@@ -28,7 +28,8 @@ plt.ylabel('Procent de supravietuire (%)')
 plt.ylim(0, 100)
 
 ## Adaugarea valorilor procentuale deasupra barelor
-for i, rate in enumerate(surv_rate_list): # Enumerate face obiectul iterabil
+
+for i, rate in enumerate(surv_rate_list): ## Enumerate face obiectul iterabil
     plt.text(i, rate + 2, f'{round(rate, 2)}%', ha='center', va='bottom')
 
-plt.savefig("./cerinta7/Da.png")
+plt.savefig("./cerinta7/RataSupr.png")

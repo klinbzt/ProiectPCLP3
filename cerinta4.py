@@ -48,11 +48,19 @@ missing_info['Numar valori lipsa'].plot(kind='bar', color='skyblue')
 plt.title('Numarul valorilor lipsa')
 plt.ylabel('Numar valori lipsă')
 
+## Adaugarea valorilor deasupra barelor
+for i, count in enumerate(missing_info['Numar valori lipsa']):
+    plt.text(i, count + 2, f'{count}', ha='center', va='bottom')
+
 ## Subplot pentru procentaj valorilor lipsa
 plt.subplot(2, 2, 2)
 missing_info['Procentaj valori lipsa (%)'].plot(kind='bar', color='orange')
 plt.title('Procentaj valorilor lipsa (%)')
 plt.ylabel('Procentaj valori lipsa (%)')
+
+## Adaugarea valorilor deasupra barelor
+for i, count in enumerate(missing_info['Procentaj valori lipsa (%)']):
+    plt.text(i, count + 2, f'{count}', ha='center', va='bottom')
 
 ## Subplot pentru numărul valorilor lipsă în funcție de clasa Survived
 plt.subplot(2, 2, 3)

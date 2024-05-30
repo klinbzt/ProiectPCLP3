@@ -21,12 +21,19 @@ data['Age_interval'] = pd.cut(data['Age'], bins=bins, labels=labels, right=False
 passengers_per_cat = data['Age_interval'].value_counts().sort_index()
 
 ## Afisare terminal:
-print(f"Numărul de pasageri în fiecare categorie de vârstă: {passengers_per_cat.to_string()}")
+print(f"Numărul de pasageri în fiecare categorie de varsta: {passengers_per_cat.to_string()}")
 
 ## Histograma pasageri in fiecare categorie de varsta
+plt.figure(figsize=(10, 10))
 passengers_per_cat.plot(kind='bar', color='skyblue')
 plt.title('Numarul de pasageri in fiecare categorie de varsta')
-plt.xlabel('Categorie de vârstă')
+plt.xlabel('Categoriile de varsta')
 plt.ylabel('Numar pasageri')
 plt.xticks(rotation=0)
+
+## Adaugarea valorilor deasupra barelor
+
+for i, count in enumerate(passengers_per_cat):
+    plt.text(i, count + 2, str(count), ha='center', va='bottom')
+
 plt.savefig("./cerinta5/IntervaleVarsteBarbatiSupr.png")
