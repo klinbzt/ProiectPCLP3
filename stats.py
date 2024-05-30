@@ -26,7 +26,7 @@ for i in range(1, cols):
 
 data_uniq = data.drop_duplicates()
 ## MODIFICARE: SALVEZ LOCAL FISIERUL!!!
-data_uniq.to_csv("./train_prelucrat.csv")
+data_uniq.to_csv("./train_prelucrat.csv", index=False)
 true_rows = int(data_uniq.shape[0])
 
 survived = data_uniq[data_uniq.columns[1]].sum()

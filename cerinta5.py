@@ -18,13 +18,13 @@ data = pd.read_csv('train_prelucrat2.csv')
 data['Age_interval'] = pd.cut(data['Age'], bins=bins, labels=labels, right=False)
 
 ## Numararea persoanelor în fiecare categorie de varsta
-passengers_per_category = data['Age_interval'].value_counts().sort_index()
+passengers_per_cat = data['Age_interval'].value_counts().sort_index()
 
 ## Afisare terminal:
-print(f"Numărul de pasageri în fiecare categorie de vârstă: {passengers_per_category.to_string()}")
+print(f"Numărul de pasageri în fiecare categorie de vârstă: {passengers_per_cat.to_string()}")
 
 ## Histograma pasageri in fiecare categorie de varsta
-passengers_per_category.plot(kind='bar', color='skyblue')
+passengers_per_cat.plot(kind='bar', color='skyblue')
 plt.title('Numarul de pasageri in fiecare categorie de varsta')
 plt.xlabel('Categorie de vârstă')
 plt.ylabel('Numar pasageri')
